@@ -20,7 +20,7 @@ nav button{flex:1;border:0;background:none;color:var(--m);padding:8px 0;min-heig
 .tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;background:#fef3c7;color:#92400e}
 .ok{background:#dcfce7;color:#166534}svg{width:100%;height:auto;border-radius:14px;background:#e0f2fe;display:block}
 h2{margin:0 0 10px}.back{background:none;border:0;color:var(--b);font:600 15px inherit;font-family:inherit;padding:8px 0;cursor:pointer}
-</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script></head><body><div id="app"></div><nav id="nav" hidden></nav>
+</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#1d4ed8"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="icon-192.png"></head><body><div id="app"></div><nav id="nav" hidden></nav>
 <script>
 const NA="รอข้อมูลยืนยัน";
 const PL={rmutt:{n:"มทร.ธัญบุรี (RMUTT)",la:14.0369,lo:100.7285,t:"ต้นทาง/ปลายทาง"},fp:{n:"ฟิวเจอร์พาร์ค รังสิต",la:13.9886,lo:100.6169,t:"ต้นทาง/ปลายทาง"},
@@ -99,4 +99,5 @@ const tabs=[["home","🏠","Home"],["map","🗺️","Map"],["routes","🚐","Rou
 function render(){A.innerHTML=V[S.scr]();const n=$("nav");const show=!["splash","login"].includes(S.scr);n.hidden=!show;if(S.scr=="map")initMap();if(S.scr=="search"||S.scr=="details")loadRoute();
 n.style.display=show?"flex":"none";n.innerHTML=tabs.map(([k,i,l])=>`<button class="${k==S.scr?"a":""}" onclick="go('${k}')"><span>${i}</span>${l}</button>`).join("")}
 render();setTimeout(()=>S.scr=="splash"&&go("login"),1400);
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script></body></html>
